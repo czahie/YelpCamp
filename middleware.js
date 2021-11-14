@@ -14,9 +14,8 @@ export const isLoggedIn = (req, res, next) => {
 
 export const validateCampground = (req, res, next) => {
     const { error } = campgroundSchema.validate(req.body);
-
     if (error) {
-        const msg = error.details.map((e) => e.message).join(",");
+        const msg = error.details.map((el) => el.message).join(",");
         throw new ExpressError(msg, 400);
     } else {
         next();
@@ -33,17 +32,6 @@ export const isAuthor = async (req, res, next) => {
     next();
 };
 
-export const validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-
-    if (error) {
-        const msg = error.details.map((e) => e.message).join(",");
-        throw new ExpressError(msg, 400);
-    } else {
-        next();
-    }
-};
-
 export const isReviewAuthor = async (req, res, next) => {
     const { id, reviewId } = req.params;
     const review = await Review.findById(reviewId);
@@ -52,4 +40,14 @@ export const isReviewAuthor = async (req, res, next) => {
         return res.redirect(`/campgrounds/${id}`);
     }
     next();
+};
+
+export const validateReview = (req, res, next) => {
+    const { error } = reviewSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(msg, 400);
+    } else {
+        next();
+    }
 };
