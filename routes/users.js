@@ -1,27 +1,18 @@
-import express from "express";
-import catchAsync from "../utils/catchAsync.js";
-import { User } from "../models/user.js";
-import passport from "passport";
-import user from "../controllers/users.js";
-
+const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const catchAsync = require('../utils/catchAsync');
+const User = require('../models/user');
+const users = require('../controllers/users');
 
-router
-    .route("/register")
-    .get(user.renderRegister)
-    .post(catchAsync(user.register));
+router.route('/register')
+    .get(users.renderRegister)
+    .post(catchAsync(users.register));
 
-router
-    .route("/login")
-    .get(user.renderLogin)
-    .post(
-        passport.authenticate("local", {
-            failureFlash: true,
-            failureRedirect: "/login",
-        }),
-        user.login
-    );
+router.route('/login')
+    .get(users.renderLogin)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
-router.get("/logout", user.logout);
+router.get('/logout', users.logout)
 
-export default router;
+module.exports = router;

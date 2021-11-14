@@ -1,5 +1,5 @@
 {
-  "name": "yelpcamp",
+  "name": "YelpCamp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,25 +10,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^1.27.1",
+    "cloudinary": "^1.23.0",
     "connect-flash": "^0.1.1",
-    "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
-    "express-session": "^1.17.2",
-    "joi": "^17.4.2",
+    "express-session": "^1.17.1",
+    "joi": "^17.2.1",
     "method-override": "^3.0.0",
-    "mongoose": "^6.0.11",
-    "multer": "^1.4.3",
+    "mongoose": "^5.10.4",
+    "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
-    "passport": "^0.5.0",
+    "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/node": "^7.16.0"
+    "passport-local-mongoose": "^6.0.1"
   }
 }
